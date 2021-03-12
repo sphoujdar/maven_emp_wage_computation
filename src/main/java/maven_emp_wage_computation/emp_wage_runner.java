@@ -11,12 +11,12 @@ public class emp_wage_runner {
 		
 		
 		public static void main(String[] args) {
-				
-				//Variables
-				int empHrs = 0, empWage = 0 , totalEmpWage = 0, totalEmpHrs = 0, day_of_month = 0 ;
 	
+				Employee employee1;
+			
+			
 				//Computation
-				while ( day_of_month < NUM_WORKING_DAYS && totalEmpHrs <= MAX_WORKING_HRS ){
+				while ( employee1.total_days_worked < NUM_WORKING_DAYS && employee1.totalEmpHrs <= MAX_WORKING_HRS ){
 					
 						int empcheck = (int) Math.floor(Math.random() * 10) % 3;
 						
@@ -33,9 +33,9 @@ public class emp_wage_runner {
 						empWage = empHrs*EMP_RATE_PER_HOUR;
 						totalEmpWage += empWage; 
 						totalEmpHrs += empHrs;
-						day_of_month++;
+						total_days_worked++;
 						
-				System.out.printf("Employee's Wage for day %d is : %d\n",day_of_month, empWage);
+				System.out.printf("Employee's Wage for day %d is : %d\n",total_days_worked, empWage);
 				}
 				
 				System.out.printf("\nEmployee's Wage for the month is %d\n" , totalEmpWage);
