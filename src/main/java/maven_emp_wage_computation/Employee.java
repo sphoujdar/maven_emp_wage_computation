@@ -2,16 +2,26 @@ package maven_emp_wage_computation;
 
 public class Employee {
 	
+	//Constants
+	public static final int IS_PART_TIME = 1;
+	public static final int IS_FULL_TIME = 2;
+	public static final int EMP_RATE_PER_HOUR = 20;
+	public static final int NUM_WORKING_DAYS = 20;
+	public static final int MAX_WORKING_HRS = 100;	
+	
+	
 	//Class Variables
-	int totalEmpWage, totalEmpHrs, total_days_worked;
+	String empName;
+	int totalEmpWage, totalEmpHrs, totalDaysWorked;
 
 	
 	//Constructor to initialize values
-	public Employee(int totalEmpWage, int totalEmpHrs, int total_days_worked) {
+	public Employee(String empName, int totalEmpWage, int totalEmpHrs, int totalDaysWorked) {
 		super();
+		this.empName = empName;
 		this.totalEmpWage = totalEmpWage;
 		this.totalEmpHrs = totalEmpHrs;
-		this.total_days_worked = total_days_worked;
+		this.totalDaysWorked = totalDaysWorked;
 	}
 
 
@@ -20,32 +30,41 @@ public class Employee {
 		
 		int empHrs = 0, empWage = 0; 
 		
-		while ( employee1.total_days_worked < emp_wage_runner.NUM_WORKING_DAYS 
-				&& employee1.totalEmpHrs <= emp_wage_runner.MAX_WORKING_HRS ){
+		System.out.printf("Calculating Wage for %s:\n\n",employee1.empName);
+		
+		while ( employee1.totalDaysWorked < NUM_WORKING_DAYS 
+				&& employee1.totalEmpHrs <= MAX_WORKING_HRS ){
 			
 			
-				int empcheck = (int) Math.floor(Math.random() * 10) % 3;
+				int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 				
-				switch (empcheck) { 
-				case emp_wage_runner.IS_FULL_TIME:
+				switch (empCheck) { 
+				case IS_FULL_TIME:
 					empHrs = 8;
 					break;
-				case emp_wage_runner.IS_PART_TIME:
+				case IS_PART_TIME:
 					empHrs = 4;
 					break;
 				default:
 					empHrs = 0;
 				}
-				empWage = empHrs*emp_wage_runner.EMP_RATE_PER_HOUR;
+				empWage = empHrs*EMP_RATE_PER_HOUR;
 				employee1.totalEmpWage += empWage; 
 				employee1.totalEmpHrs += empHrs;
-				employee1.total_days_worked++;
+				employee1.totalDaysWorked++;
 				
-		System.out.printf("Employee's Wage for day %d is : %d\n",employee1.total_days_worked, empWage);
+		System.out.printf("Employee's Wage for day %d is : %d\n",employee1.totalDaysWorked, empWage);
 		}
 		
+	}
+	
+	public void displayEmployeeDetails(Employee employee1) {
+		
+		System.out.printf("\n\nDisplaying details for %s:\n",employee1.empName);
 		System.out.printf("\nEmployee's Wage for the month is %d\n" , employee1.totalEmpWage);
 		System.out.printf("Employee Worked for %d hours\n" , employee1.totalEmpHrs);
 		
 	}
+	
+	
 }
