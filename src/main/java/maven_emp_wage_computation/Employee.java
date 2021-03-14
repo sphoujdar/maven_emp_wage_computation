@@ -4,20 +4,19 @@ public class Employee {
 	
 	//Constants
 	public static final int IS_PART_TIME = 1;
-	public static final int IS_FULL_TIME = 2;
-	public static final int EMP_RATE_PER_HOUR = 20;
-	public static final int NUM_WORKING_DAYS = 20;
-	public static final int MAX_WORKING_HRS = 100;	
+	public static final int IS_FULL_TIME = 2;	
 	
 	
 	//Class Variables
 	String empName;
+	Company empCompany;
 	int totalEmpWage, totalEmpHrs, totalDaysWorked;
 
 	
 	//Constructor to initialize values
-	public Employee(String empName, int totalEmpWage, int totalEmpHrs, int totalDaysWorked) {
+	public Employee(String empName,Company empCompany, int totalEmpWage, int totalEmpHrs, int totalDaysWorked) {
 		super();
+		this.empCompany = empCompany;
 		this.empName = empName;
 		this.totalEmpWage = totalEmpWage;
 		this.totalEmpHrs = totalEmpHrs;
@@ -30,10 +29,11 @@ public class Employee {
 		
 		int empHrs = 0, empWage = 0; 
 		
-		System.out.printf("Calculating Wage for %s:\n\n",employee1.empName);
+		System.out.printf("Calculating Wage for %s:\n",employee1.empName);
+		System.out.printf("Employee works at %s.\n\n",employee1.empCompany.companyName);
 		
-		while ( employee1.totalDaysWorked < NUM_WORKING_DAYS 
-				&& employee1.totalEmpHrs <= MAX_WORKING_HRS ){
+		while ( employee1.totalDaysWorked < empCompany.NUM_WORKING_DAYS 
+				&& employee1.totalEmpHrs <= empCompany.MAX_WORKING_HRS ){
 			
 			
 				int empCheck = (int) Math.floor(Math.random() * 10) % 3;
@@ -48,7 +48,7 @@ public class Employee {
 				default:
 					empHrs = 0;
 				}
-				empWage = empHrs*EMP_RATE_PER_HOUR;
+				empWage = empHrs*empCompany.EMP_RATE_PER_HOUR;
 				employee1.totalEmpWage += empWage; 
 				employee1.totalEmpHrs += empHrs;
 				employee1.totalDaysWorked++;
@@ -62,7 +62,7 @@ public class Employee {
 		
 		System.out.printf("\n\nDisplaying details for %s:\n",employee1.empName);
 		System.out.printf("\nEmployee's Wage for the month is %d\n" , employee1.totalEmpWage);
-		System.out.printf("Employee Worked for %d hours\n" , employee1.totalEmpHrs);
+		System.out.printf("Employee Worked for %d hours\n\n\n" , employee1.totalEmpHrs);
 		
 	}
 	
