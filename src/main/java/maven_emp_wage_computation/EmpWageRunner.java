@@ -5,9 +5,10 @@ import java.util.Scanner;
 
 public class EmpWageRunner {
 		
+		//Class Variables
 		ArrayList<Company> companyList = new ArrayList<Company>();
-	
-	
+		
+		
 		public static void main(String[] args) {
 				
 				Scanner sc = new Scanner(System.in);
@@ -17,9 +18,6 @@ public class EmpWageRunner {
 				runnerObject.displayAllCompanyData();
 				
 		}
-		
-		
-		
 		
 		
 		
