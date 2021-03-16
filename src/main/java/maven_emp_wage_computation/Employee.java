@@ -24,8 +24,8 @@ public class Employee {
 		
 		this.calc_employee_wage(this);
 	}
-
-
+	
+	
 	//Class Method to calculate employee wage
 	public void calc_employee_wage(Employee employee1) {
 		
