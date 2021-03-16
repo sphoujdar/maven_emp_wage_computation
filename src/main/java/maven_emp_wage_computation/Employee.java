@@ -1,5 +1,7 @@
 package maven_emp_wage_computation;
 
+import java.util.ArrayList;
+
 public class Employee {
 	
 	//Constants
@@ -11,6 +13,7 @@ public class Employee {
 	String empName;
 	Company empCompany;
 	int totalEmpWage, totalEmpHrs, totalDaysWorked;
+	ArrayList<Integer> dailyWage ;
 
 	
 	//Constructor to initialize values
@@ -21,6 +24,7 @@ public class Employee {
 		this.totalEmpWage = totalEmpWage;
 		this.totalEmpHrs = totalEmpHrs;
 		this.totalDaysWorked = totalDaysWorked;
+		this.dailyWage = new ArrayList<Integer>(30);
 		
 		this.calc_employee_wage(this);
 	}
@@ -51,9 +55,12 @@ public class Employee {
 					empHrs = 0;
 				}
 				empWage = empHrs*empCompany.EMP_RATE_PER_HOUR;
-				employee1.totalEmpWage += empWage; 
+				employee1.totalEmpWage += empWage;
+				employee1.dailyWage.add(totalDaysWorked, empWage);
+				
 				employee1.totalEmpHrs += empHrs;
 				employee1.totalDaysWorked++;
+				
 				
 		System.out.printf("Employee's Wage for day %d is : %d\n",employee1.totalDaysWorked, empWage);
 		}
@@ -68,6 +75,18 @@ public class Employee {
 		System.out.printf("\nEmployee's Wage for the month is %d\n" , employee1.totalEmpWage);
 		System.out.printf("Employee Worked for %d hours\n\n\n" , employee1.totalEmpHrs);
 		
+		employee1.displayEmployeeDailyWage(employee1);
+		
+	}
+	
+	public void displayEmployeeDailyWage(Employee employee1) {
+		
+		System.out.printf("Displaying Daily Wage for %s , employee of %s.\n"
+				          , employee1.empName , employee1.empCompany.companyName);
+		
+		for (int i = 0; i < employee1.dailyWage.size(); i++)
+			System.out.printf("Day %d : %d\n", i+1,  employee1.dailyWage.get(i));
+				
 	}
 	
 	

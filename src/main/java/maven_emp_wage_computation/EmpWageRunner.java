@@ -8,6 +8,7 @@ public class EmpWageRunner {
 		//Class Variables
 		ArrayList<Company> companyList = new ArrayList<Company>();
 		
+/*----------------------------------------------------------------------------------------------------*/		
 		
 		public static void main(String[] args) {
 				
@@ -19,17 +20,7 @@ public class EmpWageRunner {
 				
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+/*----------------------------------------------------------------------------------------------------*/		
 		
 		public Company createCompany(Scanner sc) {
 			
@@ -79,6 +70,7 @@ public class EmpWageRunner {
 			
 			
 			Employee newEmployee = new Employee(employeeName, currentCompany, 0, 0, 0);
+			currentCompany.employeeList.add(newEmployee);
 			return newEmployee;
 			
 		}
@@ -95,7 +87,6 @@ public class EmpWageRunner {
 			}
 			
 		}
-		
 		
 		
 		
