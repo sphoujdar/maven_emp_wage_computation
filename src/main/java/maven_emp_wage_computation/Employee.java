@@ -21,6 +21,8 @@ public class Employee {
 		this.totalEmpWage = totalEmpWage;
 		this.totalEmpHrs = totalEmpHrs;
 		this.totalDaysWorked = totalDaysWorked;
+		
+		this.calc_employee_wage(this);
 	}
 
 
@@ -55,6 +57,8 @@ public class Employee {
 				
 		System.out.printf("Employee's Wage for day %d is : %d\n",employee1.totalDaysWorked, empWage);
 		}
+		
+		employee1.empCompany.totalWage += employee1.totalEmpWage;
 		
 	}
 	
